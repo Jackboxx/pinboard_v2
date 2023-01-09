@@ -2,4 +2,4 @@ pre-commit:
   parallel: true
   commands:
     eslint:
-      run: yarn eslint {staged_files}
+      run: npm run lint {staged_files}
