@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let title: string;
-	export let description: string | undefined = undefined;
+	export let description: string | null = null;
 </script>
 
 <div class="w-[300px] h-[200px] rounded m-4 bg-gray-800">

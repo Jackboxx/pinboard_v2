@@ -1,11 +1,12 @@
 <script lang="ts">
-	import Task from './task.svelte';
+	import type { Task } from '@prisma/client';
+	import TaskComponent from './task.svelte';
 
-	export let tasks: { title: string; description: string | undefined }[];
+	export let tasks: Task[];
 </script>
 
 <div class="bg-gray-700 w-full h-full">
 	{#each tasks as task}
-		<Task title={task.title} description={task.description} />
+		<TaskComponent title={task.title} description={task.description} />
 	{/each}
 </div>

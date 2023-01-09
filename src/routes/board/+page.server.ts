@@ -1,7 +1,8 @@
 import type { PageServerLoad } from './$types';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, type Task } from '@prisma/client';
+import type { ResponseMany } from 'src/types/response';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async (): Promise<ResponseMany<Task>> => {
 	const prisma = new PrismaClient();
 	const tasks = await prisma.task.findMany();
 
