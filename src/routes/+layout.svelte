@@ -1,5 +1,15 @@
 <script>
 	import '../app.css';
+	import Header from './header.svelte';
 </script>
 
-<slot />
+<div class="flex flex-col h-[100vh]">
+	<Header />
+	<slot />
+</div>
+
+<style>
+	* {
+		color: white;
+	}
+</style>
