@@ -5,6 +5,8 @@
 	export let tasks: Task[];
 </script>
 
-{#each tasks as task}
-	<TaskComponent title={task.title} description={task.description} />
-{/each}
+<div>
+	{#each tasks as task}
+		<TaskComponent title={task.title} description={task.description} />
+	{/each}
+</div>
