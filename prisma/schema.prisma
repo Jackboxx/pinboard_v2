@@ -6,17 +6,17 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  username  String @unique
-  email String @unique
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  email    String @unique
   password String
-  Task  Task[]
+  tasks    Task[]
 }
 
 model Task {
@@ -25,4 +25,19 @@ model Task {
   description String?
   creator     User    @relation(fields: [creatorId], references: [id], onDelete: Cascade)
   creatorId   Int
+  board       Board   @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  boardId     Int
+}
+
+model Board {
+  id     Int    @id @default(autoincrement())
+  name   String
+  tasks Task[]
+  status Status[]
+}
+
+model Status {
+  id   Int    @id @default(autoincrement())
+  name String
+  boards Board[]
 }
