@@ -27,6 +27,8 @@ model Task {
   creatorId   Int
   board       Board   @relation(fields: [boardId], references: [id], onDelete: Cascade)
   boardId     Int
+  status      Status   @relation(fields: [statusId], references: [id], onDelete: Cascade)
+  statusId     Int
 }
 
 model Board {
@@ -38,6 +40,8 @@ model Board {
 
 model Status {
   id   Int    @id @default(autoincrement())
-  name String
-  boards Board[]
+  name String @unique
+  board       Board   @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  boardId     Int
+  tasks Task[]
 }

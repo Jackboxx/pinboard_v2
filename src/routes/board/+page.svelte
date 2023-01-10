@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Task } from '@prisma/client';
-	import type { ResponseMany } from 'src/types/response';
-	import Board from './board.svelte';
+	import type { Board, Status, Task } from '@prisma/client';
+	import type { ResponseOne } from 'src/types/response';
+	import BoardComponent from './board.svelte';
 
-	export let data: ResponseMany<Task>;
+	export let data: ResponseOne<Board & { tasks: Task[]; statuses: Status[] }>;
 </script>
 
-<Board tasks={data.result} />
+<BoardComponent board={data.result} />

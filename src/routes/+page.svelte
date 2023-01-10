@@ -5,7 +5,6 @@
 	import { onMount } from 'svelte';
 
 	export let data: ResponseOne<User | undefined>;
-	userStore.subscribe((v) => console.log(v));
 
 	onMount(() => {
 		userStore.set(data.result);
